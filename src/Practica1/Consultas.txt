@@ -1,0 +1,27 @@
+Ejercicio7 inciso d- no entiendo a que se refiere con que haga una lista que sea una copia de la anterior?
+tengo que hacer una lista igual? que tipo de lista? arrayList, linkedList, copiar solo los valores?
+import java.util.ArrayList;
+import java.util.List;
+
+public static void copiarLista() {
+
+    // 1. Crear lista con 3 estudiantes
+    List<Estudiante> lista1 = new ArrayList<>();
+    lista1.add(new Estudiante("Juan"));
+    lista1.add(new Estudiante("Ana"));
+    lista1.add(new Estudiante("Luis"));
+
+    // 2. Copiar la lista
+    List<Estudiante> lista2 = new ArrayList<>(lista1);
+
+    // Mostrar ambas listas
+    for (Estudiante e : lista2) {
+        System.out.println(e.nombre);
+    }
+}
+esto tengo q hacer?
+
+- Como debo de declarar las listas?
+List<T> lista = new ArrayList();
+o
+ArrayList<T> lista = new ArrayList();
