@@ -3,7 +3,7 @@ package src.Practica1.Ejercicio7;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import src.Practica1.Ejercicio3.*;
+import src.Practica1.Ejercicio3.Estudiante;
 
 public class TestArrayList{
     // Inciso d-
@@ -11,7 +11,7 @@ public class TestArrayList{
         ArrayList <Estudiante> Estudiantes = new ArrayList<>();
         Estudiante e;
         for(int i= 0; i < 3; i++){
-            e = new Estudiante("Leonel","Reynaga", "hola"+i, "email xd", "que mierda te importa");             
+            e = new Estudiante("Leonel","Reynaga", "hola"+i, "email xd", "que");             
             Estudiantes.add(e);
         }
         return Estudiantes;   
@@ -52,10 +52,28 @@ public class TestArrayList{
         return lista;
     }
     // Inciso h-
-    public void invertirArray(ArrayList<Integer> lista){
-
+    public static void invertirArray(ArrayList<Integer> lista, int i, int ult){
+        if (i >= ult){
+            return;
+        }
+        int temp = lista.get(i);
+        lista.set(i, lista.get(lista.size()-i-1));
+        lista.set(lista.size()-i-1, temp);
+        invertirArray(lista, i+1, ult-1);
     }
-
+    // Inciso i-
+    public static int sumarLinkedList(LinkedList<Integer> lista,int i ){
+        if (i == lista.size()){
+            return 0;
+        }
+        int result = lista.get(i) + sumarLinkedList(lista,i+1);
+        return result;
+    }
+    //Inciso j-
+    public static ArrayList<Integer> combinarOrdenado(ArrayList<Integer> lista1, ArrayList<Integer> lista2){
+                
+        return null;
+    }
     public static void main(String[] args) {
         // Inciso b--
         /* 
@@ -125,6 +143,17 @@ public class TestArrayList{
         System.out.println(lista);
         */
         // Inciso h- 
-        
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+        numeros.add(1);
+        numeros.add(2);     
+        numeros.add(3);
+        numeros.add(4);
+        numeros.add(5);
+        System.err.println(numeros);
+        invertirArray(numeros, 0, numeros.size()-1);
+        System.out.println(numeros);
+        // Inciso i-
+        LinkedList<Integer> listaEnlazada = new LinkedList<>(numeros);
+        System.out.println(sumarLinkedList(listaEnlazada, 0));
     }
 }
