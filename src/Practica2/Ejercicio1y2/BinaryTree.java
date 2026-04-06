@@ -1,4 +1,5 @@
 package src.Practica2.Ejercicio1y2;
+import src.Practica1.Ejercicio8.Queue;
 
 public class BinaryTree<T> {
     private T data;
@@ -49,12 +50,12 @@ public class BinaryTree<T> {
     }
 
     public void removeRightChild(){
-        if(!this.hasRighChild()){
+        if(this.hasRighChild()){
             this.rightChild = null;
         }
     }
     public void removeLeftChild(){
-        if(!this.hasLeftChild()){
+        if(this.hasLeftChild()){
             this.leftChild = null;
         }
     }
@@ -69,27 +70,58 @@ public class BinaryTree<T> {
     // Ejercicio 2
     // inciso a-
     public int contarHojas(){
-        int cont = 0;
         if (isLeaf()){
-            cont++;   
+            return 1;   
         }else{
+            int cont = 0;
             if(hasLeftChild()){
-                cont = cont + contarHojas();
+                cont = cont + this.leftChild.contarHojas();
             }
             if(hasRighChild()){
-                cont = cont + contarHojas();
+                cont = cont + this.rightChild.contarHojas();
             }
+            return cont;
         }
-        return cont;
     }
 
     // inciso b-
     public BinaryTree<T> espejo(){
-        if (!isEmpty()) {
-            
+        BinaryTree<T> nuevo = new BinaryTree<>(this.getData());
+        if (this.hasLeftChild()){
+            nuevo.addRightChild(this.leftChild.espejo());
         }
-        
-        return null;
+        if (this.hasRighChild()){
+            nuevo.addLeftChild(this.rightChild.espejo());
+        }
+        return nuevo;
+    }
+
+    // inciso c-
+    public void entreNiveles(int n,int m){
+
+        BinaryTree<T> ab = null;
+        Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
+        cola.enqueue(this);
+        cola.enqueue(null);
+        int cont = 1;
+        while(!cola.isEmpty()){
+            ab = cola.dequeue();
+            if((ab != null) && (cont<=n) && (cont<=m)){
+                System.out.print(ab.getData());
+                if(ab.hasLeftChild()){
+                    cola.enqueue(ab.getLeftChild());
+                }
+                if(ab.hasRighChild()){
+                    cola.enqueue(ab.getRightChild());
+                }
+            }else if (!cola.isEmpty()){
+                System.out.println();
+                cola.enqueue(null);
+            }
+        }
+
+
+
     }
 
 }
