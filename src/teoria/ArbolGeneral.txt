@@ -1,0 +1,18 @@
+Un arbol es una coleccion de nodos, tal que:
+puede estar vaia
+puede estar formada por un nodo distinguido R llamado raiz y un conjunto de arboles T1,t2,t2... tk
+los hijos a sus vez son arboles
+
+grado de ni es el numero de hijos del nodo ni. 
+-grado del arol es el grado del nodo con mayor grado
+en uno general no está acotado, si tengo uno con 10 hijos el grado del arbol es 10, siempre es el maximo
+
+altura es la longitud del camino mas largo desde ni hasta una hoja
+- la profundidad es el camino del nodo a la raiz (para cada nodo)<> altura
+- las hojas tienen altura 0
+- la altura de un arbol es la altura del nodo raiz
+
+profundidad/nivel unico camino desde la raiz hasta ni (nodo)
+- la raiz tiene profundidad o nivel cero
+
+que la chupe
