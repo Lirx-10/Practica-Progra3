@@ -98,16 +98,17 @@ public class BinaryTree<T> {
 
     // inciso c-
     public void entreNiveles(int n,int m){
-
         BinaryTree<T> ab = null;
         Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
         cola.enqueue(this);
         cola.enqueue(null);
-        int cont = 1;
+        int nivel = 0;
         while(!cola.isEmpty()){
             ab = cola.dequeue();
-            if((ab != null) && (cont<=n) && (cont<=m)){
-                System.out.print(ab.getData());
+            if(ab != null) {
+                if((nivel>=n) && (nivel<=m)){
+                    System.out.print(ab.getData());
+                }
                 if(ab.hasLeftChild()){
                     cola.enqueue(ab.getLeftChild());
                 }
@@ -117,11 +118,9 @@ public class BinaryTree<T> {
             }else if (!cola.isEmpty()){
                 System.out.println();
                 cola.enqueue(null);
+                nivel++;
             }
         }
-
-
-
     }
 
 }
