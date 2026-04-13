@@ -123,4 +123,47 @@ public class BinaryTree<T> {
         }
     }
 
+
+    public void crearArbol(BinaryTree<Integer> raiz) {
+        raiz.setData(12);
+
+        BinaryTree<Integer> n7 = new BinaryTree<>(7);
+        BinaryTree<Integer> n15 = new BinaryTree<>(15);
+        BinaryTree<Integer> n3 = new BinaryTree<>(3);
+        BinaryTree<Integer> n14 = new BinaryTree<>(14);
+        BinaryTree<Integer> n20 = new BinaryTree<>(20);
+        BinaryTree<Integer> n18 = new BinaryTree<>(18);
+
+        raiz.addLeftChild(n7);
+        raiz.addRightChild(n15);
+
+        n7.addLeftChild(n3);
+
+        n15.addLeftChild(n14);
+        n15.addRightChild(n20);
+
+        n14.addLeftChild(n18);
+    }
+
+    public void imprimirDetalle(BinaryTree<Integer> nodo) {
+        if (nodo == null) return;
+        System.out.print("Nodo: " + nodo.getData());
+        if (nodo.hasLeftChild()) {
+            System.out.print(" | Hijo Izq: " + nodo.getLeftChild().getData());
+        } else {
+            System.out.print(" | Hijo Izq: null");
+        }
+        if (nodo.hasRighChild()) {
+            System.out.print(" | Hijo Der: " + nodo.getRightChild().getData());
+        } else {
+            System.out.print(" | Hijo Der: null");
+        }
+        System.out.println();
+        if (nodo.hasLeftChild()) {
+            imprimirDetalle(nodo.getLeftChild());
+        }
+        if (nodo.hasRighChild()) {
+            imprimirDetalle(nodo.getRightChild());
+        }
+    }
 }

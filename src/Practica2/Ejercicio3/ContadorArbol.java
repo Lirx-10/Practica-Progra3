@@ -13,7 +13,7 @@ public class ContadorArbol {
             numerosParesInOrden(arbol.getLeftChild());   
         }
         if (arbol.getData()%2 == 0) {
-            return new LinkedList<Integer>().add(arbol.getData());
+            
         }
         if (arbol.hasRighChild()) {
             numerosParesInOrden(arbol.getRightChild());
