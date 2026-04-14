@@ -43,11 +43,7 @@ public class Queue<T> implements Sequence{
     }
 
     public boolean isEmpty(){
-        if (lista.isEmpty()) {
-            return true;
-        }else{
-            return false;
-        }
+        return lista.isEmpty();
     }
 
     public int size(){

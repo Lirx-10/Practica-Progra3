@@ -120,6 +120,9 @@ public class BinaryTree<T> {
                 cola.enqueue(null);
                 nivel++;
             }
+            if(nivel > m){
+                break;
+            }
         }
     }
 

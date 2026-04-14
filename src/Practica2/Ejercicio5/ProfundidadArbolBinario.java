@@ -1,7 +1,6 @@
 package src.Practica2.Ejercicio5;
 
 import src.Practica2.Ejercicio1y2.BinaryTree;
-import src.Practica2.Ejercicio4.RedBinariaLlena;
 
 public class ProfundidadArbolBinario {
     private BinaryTree<Integer> arbol;

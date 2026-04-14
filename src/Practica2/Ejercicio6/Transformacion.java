@@ -27,10 +27,9 @@ public class Transformacion {
         nodo.setData(aux);
         return aux + original;
     }
-
     public BinaryTree<Integer> suma(){
-        int meChupa = Transformar(this.arbol);
-        System.out.println(meChupa);
+        int valor = Transformar(this.arbol);
+        System.out.println(valor);
         return this.arbol;
     }
 
