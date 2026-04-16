@@ -1,6 +1,7 @@
 package src.Practica3.Ejercicio1y3;
 
 import java.util.*;
+import src.Practica1.Ejercicio8.Queue;
 
 public class GeneralTree<T> {
     private T data;
@@ -67,4 +68,60 @@ public class GeneralTree<T> {
         }
     }
 
+    //Ejercicio 3
+    public int altura(){
+        if (this.isLeaf()){
+            return 0;
+        }
+        int maxAltura = 0;
+        for(GeneralTree<T> child : this.getChildren()){
+            int Altura = child.altura();
+            if(Altura > maxAltura){
+                maxAltura = Altura;
+            }
+        }
+        return maxAltura + 1;
+    }
+
+    public int nivel(T dato){
+        int nivel = 0;
+        GeneralTree<T> aux;
+        Queue<GeneralTree<T>> queue = new Queue<GeneralTree<T>>();
+        queue.enqueue(this);
+        queue.enqueue(null);
+        while (!queue.isEmpty()) {
+            aux = queue.dequeue();
+            if(dato.equals(aux.getData())){
+                return nivel;
+            }else if(aux.equals(null)){
+                nivel++;
+            }else{
+                List<GeneralTree<T>> children = aux.getChildren();
+                for(GeneralTree<T> child : children){
+                    queue.enqueue(child);
+                }
+            }
+        }
+        return nivel;
+    }
+
+    public int nivelPostOrden(T dato){
+        if(this.isLeaf()){
+            return 0;
+        }
+        int nivel = 0;
+        if(this.getData() != dato){
+            List<GeneralTree<T>>children = this.getChildren();
+            for(GeneralTree<T> child : children){
+                nivel = child.nivelPostOrden(dato);
+            }   
+        }
+        
+        return nivel + 1;
+    }
+
+    public int ancho(){
+
+        return 0;
+    }
 }
