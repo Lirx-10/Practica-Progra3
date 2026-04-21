@@ -1,4 +1,4 @@
-package src.Practica3.Ejercicio1y3;
+package src.Practica3.Ejercicio1y3y5;
 
 import java.util.*;
 import src.Practica1.Ejercicio8.Queue;
@@ -91,37 +91,46 @@ public class GeneralTree<T> {
         queue.enqueue(null);
         while (!queue.isEmpty()) {
             aux = queue.dequeue();
-            if(dato.equals(aux.getData())){
-                return nivel;
-            }else if(aux.equals(null)){
-                nivel++;
-            }else{
-                List<GeneralTree<T>> children = aux.getChildren();
-                for(GeneralTree<T> child : children){
+            if (aux != null) {
+                if (aux.getData() == dato) {
+                    return nivel;
+                }
+                for (GeneralTree<T> child : aux.getChildren()) {
                     queue.enqueue(child);
+                }
+            } else {
+                if (!queue.isEmpty()) {
+                    queue.enqueue(null);
+                    nivel++;
                 }
             }
         }
-        return nivel;
-    }
-
-    public int nivelPostOrden(T dato){
-        if(this.isLeaf()){
-            return 0;
-        }
-        int nivel = 0;
-        if(this.getData() != dato){
-            List<GeneralTree<T>>children = this.getChildren();
-            for(GeneralTree<T> child : children){
-                nivel = child.nivelPostOrden(dato);
-            }   
-        }
-        
-        return nivel + 1;
+        return -1;
     }
 
     public int ancho(){
 
         return 0;
+    }
+
+    //Ejercicio 5
+    public GeneralTree<T> buscarNodo(GeneralTree<T> arbol,T dato){
+        if(arbol.getData() == dato){
+            return arbol;
+        }
+        
+        for(GeneralTree<T>child : arbol.getChildren()){
+            GeneralTree<T> aux = buscarNodo(child, dato);
+            if(aux != null){
+                return aux;
+            }
+        }
+        return null;
+    }
+
+    public boolean esAncestro(T a, T b){
+        GeneralTree<T> nodoA = this.buscarNodo(this,a);
+        
+        return false;
     }
 }

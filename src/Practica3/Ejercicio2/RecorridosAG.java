@@ -2,7 +2,7 @@ package src.Practica3.Ejercicio2;
 
 import java.util.*;
 import src.Practica1.Ejercicio8.Queue;
-import src.Practica3.Ejercicio1y3.GeneralTree;
+import src.Practica3.Ejercicio1y3y5.GeneralTree;
 
 public class RecorridosAG {
     
