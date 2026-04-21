@@ -73,7 +73,7 @@ public class RecorridosAG {
         Queue<GeneralTree<Integer>> queue = new Queue<GeneralTree<Integer>>();
         queue.enqueue(a);
         while(!queue.isEmpty()){
-            aux = queue.dequeue();
+            aux = queue.dequeue();  
             if(aux.getData()%2 != 0 & aux.getData() > n){
                 lista.add(aux.getData());
             }   

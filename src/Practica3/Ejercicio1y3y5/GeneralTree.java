@@ -128,9 +128,23 @@ public class GeneralTree<T> {
         return null;
     }
 
+    public boolean contiene(GeneralTree<T> a, T dato){
+        if(a.getData() == dato){
+            return true;
+        }
+        for(GeneralTree<T> child : a.getChildren()){
+            if(contiene(child, dato)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean esAncestro(T a, T b){
         GeneralTree<T> nodoA = this.buscarNodo(this,a);
-        
+        if(nodoA == null){
+            return false;
+        }
         return false;
     }
 }
