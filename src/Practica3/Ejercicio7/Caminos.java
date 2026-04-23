@@ -27,7 +27,8 @@ public class Caminos {
                 mejorCamino(child, actual,mejor);
             }
         }
-        actual.remove(actual.size()-1);
+        //actual.remove(actual.size()-1);
+        actual.removeLast();
     }
 
     public List<Integer> caminoAHojaMasLejana(){

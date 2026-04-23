@@ -27,6 +27,8 @@ public class RedSolarEspacial {
         return aux;
     }
 
+    // El metodo es privado por que es auxiliar y solo lo usas otro metodo de la clase,
+    //  ademas de que no tiene sentido que lo use otra clase
     private double calcularMinimo(GeneralTree<Dato> a, double energiaTotal){
       double rta = energiaTotal;
         int cantActivos = 0;

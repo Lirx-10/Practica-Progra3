@@ -1,0 +1,5 @@
+Un heap es algo que tiene adentro un arbol binario, tenemos 2 tipos: de maximos y minimos
+maximo: siempre mayor a mis dos hijos
+minimo: siempre menor a mis dos hijos
+
+Hay dos formas de crear heap, uno a uno(insert heap) o crear la lista entera(build heap)
