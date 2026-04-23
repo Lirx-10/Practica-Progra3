@@ -32,8 +32,4 @@ public class RedAguaPotable {
     public double minimoCaudal(double caudal){
         return calcularMinimo(this.arbol, caudal);
     }
-
-
-
-    
 }
