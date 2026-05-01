@@ -25,7 +25,7 @@ public class ProfundidadArbolBinario {
         if(this.arbol.hasLeftChild()){
             suma = sumaElementosProfundidad(p-1);
         }
-        if(this.arbol.hasRighChild()){
+        if(this.arbol.hasRightChild()){
             suma = sumaElementosProfundidad(p-1);
         }
 
