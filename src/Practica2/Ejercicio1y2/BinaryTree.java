@@ -21,7 +21,7 @@ public class BinaryTree<T> {
     }
 
     public BinaryTree<T> getRightChild(){
-        if (this.hasRighChild()){
+        if (this.hasRightChild()){
             return rightChild;
         }else{
             throw new RuntimeException("No existe hijo derecho");
@@ -42,7 +42,7 @@ public class BinaryTree<T> {
         this.leftChild = zurdo;
     }
 
-    public boolean hasRighChild(){
+    public boolean hasRightChild(){
         return this.rightChild != null;
     }
     public boolean hasLeftChild(){
@@ -50,7 +50,7 @@ public class BinaryTree<T> {
     }
 
     public void removeRightChild(){
-        if(this.hasRighChild()){
+        if(this.hasRightChild()){
             this.rightChild = null;
         }
     }
@@ -64,7 +64,7 @@ public class BinaryTree<T> {
         return (this.isLeaf() && this.getData() == null);
     }
     public boolean isLeaf(){
-        return !this.hasLeftChild() && !this.hasRighChild();
+        return !this.hasLeftChild() && !this.hasRightChild();
     }
 
     // Ejercicio 2
@@ -77,7 +77,7 @@ public class BinaryTree<T> {
             if(hasLeftChild()){
                 cont = cont + this.leftChild.contarHojas();
             }
-            if(hasRighChild()){
+            if(hasRightChild()){
                 cont = cont + this.rightChild.contarHojas();
             }
             return cont;
@@ -90,7 +90,7 @@ public class BinaryTree<T> {
         if (this.hasLeftChild()){
             nuevo.addRightChild(this.leftChild.espejo());
         }
-        if (this.hasRighChild()){
+        if (this.hasRightChild()){
             nuevo.addLeftChild(this.rightChild.espejo());
         }
         return nuevo;
@@ -112,7 +112,7 @@ public class BinaryTree<T> {
                 if(ab.hasLeftChild()){
                     cola.enqueue(ab.getLeftChild());
                 }
-                if(ab.hasRighChild()){
+                if(ab.hasRightChild()){
                     cola.enqueue(ab.getRightChild());
                 }
             }else if (!cola.isEmpty()){
@@ -156,7 +156,7 @@ public class BinaryTree<T> {
         } else {
             System.out.print(" | Hijo Izq: null");
         }
-        if (nodo.hasRighChild()) {
+        if (nodo.hasRightChild()) {
             System.out.print(" | Hijo Der: " + nodo.getRightChild().getData());
         } else {
             System.out.print(" | Hijo Der: null");
@@ -165,7 +165,7 @@ public class BinaryTree<T> {
         if (nodo.hasLeftChild()) {
             imprimirDetalle(nodo.getLeftChild());
         }
-        if (nodo.hasRighChild()) {
+        if (nodo.hasRightChild()) {
             imprimirDetalle(nodo.getRightChild());
         }
     }

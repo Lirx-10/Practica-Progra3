@@ -15,7 +15,7 @@ public class ContadorArbol {
         if (arbol.getData()%2 == 0) {
             
         }
-        if (arbol.hasRighChild()) {
+        if (arbol.hasRightChild()) {
             numerosParesInOrden(arbol.getRightChild());
         }
         return null;

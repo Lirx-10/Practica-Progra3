@@ -20,7 +20,7 @@ public class Transformacion {
         if(nodo.hasLeftChild()){
             aux = aux + Transformar(nodo.getLeftChild());
         }
-        if(nodo.hasRighChild()){
+        if(nodo.hasRightChild()){
             aux = aux + Transformar(nodo.getRightChild());
         }
         original = nodo.getData();

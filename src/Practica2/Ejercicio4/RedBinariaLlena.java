@@ -23,7 +23,7 @@ public class RedBinariaLlena {
         if(arbol.hasLeftChild()){
             izq = retardoReenvio(arbol.getLeftChild());
         }
-        if(arbol.hasRighChild()){
+        if(arbol.hasRightChild()){
             der = retardoReenvio(arbol.getRightChild());
         }
         return arbol.getData() + maximo(izq, der);
