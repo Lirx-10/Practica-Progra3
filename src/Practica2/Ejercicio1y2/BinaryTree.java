@@ -22,16 +22,16 @@ public class BinaryTree<T> {
 
     public BinaryTree<T> getRightChild(){
         if (this.hasRightChild()){
-            return rightChild;
+            return this.rightChild;
         }else{
-            throw new RuntimeException("No existe hijo derecho");
+            return null;
         }
     }
     public BinaryTree<T> getLeftChild(){
         if (this.hasLeftChild()){
-            return leftChild;
+            return this.leftChild;
         }else{
-            throw new RuntimeException("No existe hijo izquierdo");
+            return null;
         }
     }
 
