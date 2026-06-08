@@ -33,15 +33,22 @@ public class GraphMatriz<T> implements Graph<T>{
 
     @Override
     public void removeVertex(Vertex<T> vertex) {
+        int pos = vertices.indexOf(vertex);
         int sizeViejo = vertices.size();
         int [][] matrizNueva = new int[sizeViejo - 1][sizeViejo - 1];
-        for(int i=0; i < sizeViejo; i++){
-            for(int j=0; i < sizeViejo - 1; j++){
-                matrizNueva[i][j] = matrizAdyacente[i][j];
+        int iNueva = 0;
+        for(int i = 0; i < sizeViejo; i++){
+            int jNueva = 0;
+            if(i == pos) continue;
+            for(int j = 0; j < sizeViejo; j++){
+                if(j == pos) continue;
+                matrizNueva[iNueva][jNueva] = matrizAdyacente[i][j];
+                jNueva++;        
             }
+            iNueva++;
         }
         matrizAdyacente = matrizNueva;
-        vertices.remove(sizeViejo);
+        vertices.remove(pos);
     }
 
     @Override
@@ -56,26 +63,43 @@ public class GraphMatriz<T> implements Graph<T>{
 
     @Override
     public void connect(Vertex<T> origin, Vertex<T> destination) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'connect'");
+        int posOrigin = vertices.indexOf(origin);
+        int posDestination = vertices.indexOf(destination);    
+        if (posDestination == -1 || posOrigin == -1) {
+            System.out.println("Alguno de los 2 vertices no existe, no se realiza la conexión");
+            return;
+        }
+        matrizAdyacente[posOrigin][posDestination] = 1; 
     }
 
     @Override
     public void connect(Vertex<T> origin, Vertex<T> destination, int weight) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'connect'");
+        int posOrigin = vertices.indexOf(origin);
+        int posDestination = vertices.indexOf(destination);    
+        if (posDestination == -1 || posOrigin == -1) {
+            return;
+        }
+        matrizAdyacente[posOrigin][posDestination] = weight;
     }
 
     @Override
     public void disconnect(Vertex<T> origin, Vertex<T> destination) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'disconnect'");
+        int posOrigin = vertices.indexOf(origin);
+        int posDestination = vertices.indexOf(destination);    
+        if (posDestination == -1 || posOrigin == -1) {
+            return;
+        }
+        matrizAdyacente[posOrigin][posDestination] = 0;
     }
 
     @Override
     public boolean existsEdge(Vertex<T> origin, Vertex<T> destination) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'existsEdge'");
+        int posOrigin = vertices.indexOf(origin);
+        int posDestination = vertices.indexOf(destination);
+        if(posDestination == -1 || posOrigin == -1){
+            return false;
+        }
+        return matrizAdyacente[posOrigin][posDestination] > 0;
     }
 
     @Override
@@ -94,13 +118,30 @@ public class GraphMatriz<T> implements Graph<T>{
 
     @Override
     public int weight(Vertex<T> origin, Vertex<T> destination) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'weight'");
+        int posOrigin = vertices.indexOf(origin);
+        int posDestination = vertices.indexOf(destination);    
+        if (posDestination == -1 || posOrigin == -1) {
+            System.out.println("Alguno de los 2 vertices no existe");
+            return 0;
+        }
+        return matrizAdyacente[posOrigin][posDestination];
     }
 
     @Override
     public List<Edge<T>> getEdges(Vertex<T> v) {
-        return null;
+        List<Edge<T>> aristas = new ArrayList<>();
+        int pos = vertices.indexOf(v);
+        if(pos == -1){
+            return null;
+        }
+        int size = vertices.size();
+        for(int i = 0; i < size; i++){
+            if(matrizAdyacente[pos][i] != 0){
+                Edge<T> arista = new EdgeImpl<>(vertices.get(i), matrizAdyacente[pos][i]);
+                aristas.add(arista);
+            }
+        }
+        return aristas;
     }
 
     @Override

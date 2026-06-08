@@ -1,4 +1,4 @@
-package src.Practica1.Ejercicio8;
+package Practica1.Ejercicio8;
 
 import java.util.LinkedList;
 import java.util.List;

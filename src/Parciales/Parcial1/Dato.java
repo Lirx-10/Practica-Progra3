@@ -1,4 +1,4 @@
-package src.Parciales.Parcial1;
+package Parciales.Parcial1;
 
 public class Dato {
     private String nombre;
