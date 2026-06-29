@@ -1,4 +1,4 @@
-package src.Parciales.Parcial1;
+package Parciales.Modulo1.Parcial1;
 
 import java.util.*;
 

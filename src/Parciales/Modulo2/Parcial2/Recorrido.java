@@ -1,4 +1,4 @@
-package Parciales.Parcial2;
+package Parciales.Modulo2.Parcial2;
 
 import java.util.List;
 import Practica5.Ejercicio1.*;

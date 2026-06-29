@@ -1,7 +1,9 @@
+package src.Practica4.Ejercicio1;
+
 import java.util.Arrays;
 
 public class Banco {
-	 
+
 	static final int CANTIDAD_CUENTAS   = 10000000;
 	static final int CANTIDAD_CONSULTAS = CANTIDAD_CUENTAS;
 	

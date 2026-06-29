@@ -11,4 +11,6 @@ public interface Vertex<T> {
     //Retorna la posición del vértice en el grafo
     public int getPosition();
 
+    public void setPosition(int position);
+
 }

@@ -17,7 +17,6 @@ public class Recorridos {
                 dfsRecursivo(i, grafo, visitados, recorrido);
             }
         }
-        
         return recorrido;
     }
     private <T> void dfsRecursivo(int i, Graph<T> grafo, boolean[] visitados, List<T> recorrido){
@@ -52,12 +51,11 @@ public class Recorridos {
             recorrido.add(v.getData());
             for(Edge<T> e : grafo.getEdges(v)){
                 int j = e.getTarget().getPosition();
-                if(visitados[j] = false){
+                if(visitados[j] == false){
                     visitados[j] = true;
                     queue.enqueue(e.getTarget());
                 }
             }
-
         }
     }
 

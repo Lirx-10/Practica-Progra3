@@ -4,6 +4,8 @@ public class EdgeImpl<T> implements Edge<T>{
     private Vertex<T> destino;
     private int peso;
 
+    public EdgeImpl(){}
+
     public EdgeImpl(Vertex<T> destino, int peso){
         this.destino = destino;
         this.peso = peso;
@@ -12,6 +14,11 @@ public class EdgeImpl<T> implements Edge<T>{
     @Override
     public Vertex<T> getTarget() {
         return this.destino;
+    }
+
+    @Override
+    public void setTarget(Vertex<T> destino){
+        this.destino = destino;
     }
 
     @Override

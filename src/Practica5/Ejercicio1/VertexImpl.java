@@ -4,8 +4,9 @@ public class VertexImpl<T> implements Vertex<T>{
     private T data;
     private int position;
 
-    public VertexImpl(T data){
+    public VertexImpl(T data, int position){
         this.data = data;
+        this.position = position;
     }
 
     @Override
@@ -21,6 +22,10 @@ public class VertexImpl<T> implements Vertex<T>{
     @Override
     public int getPosition() {
         return this.position;
+    }
+
+    public void setPosition(int position){
+        this.position = position;
     }
     
 }

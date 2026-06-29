@@ -1,7 +1,7 @@
 /* 
 Francesca johnson quiere poner en marcha un emprendimiento de turismo que permita visitar los 
-puentes cubiertos de Madison, Iowa. Francesca posee un mapa de las localidades y la interonexión
-a través de los puentes, esto se enuentra modelado a través de un grafo. Los puentes (conexiones)
+puentes cubiertos de Madison, Iowa. Francesca posee un mapa de las localidades y la interconexión
+a través de los puentes, esto se encuentra modelado a través de un grafo. Los puentes (conexiones)
 poseen los siguientes valores: 0 = la visita es opcional, 1 = la visita es imperdible. 
   Escriba un algoritmo que le permita a francesca ofrecer el siguiente recorrido: a partir de 
 la localidad "Cedar Creek" hasta la localidad "Joshua", obtener el camino completo que le 
@@ -10,7 +10,7 @@ localidad. En caso de existir más de un camino posible, devolver el que transit
 cantidad de puentes opcionales.
 */
 
-package Parciales.Parcial2;
+package Parciales.Modulo2.Parcial2;
 
 import java.util.ArrayList;
 import java.util.List;

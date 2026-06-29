@@ -7,5 +7,7 @@ public interface Edge<T> {
 
     //Retorna el peso de la arista
     public int getWeight();
+
+    public void setTarget(Vertex<T> destino);
     
 }

@@ -1,6 +1,6 @@
-package src.Parciales.Parcial1;
+package Parciales.Modulo1.Parcial1;
 
-import src.Practica3.Ejercicio1y3y5.*;
+import Practica3.Ejercicio1y3y5.GeneralTree;
 
 public class RedSolarEspacial {
     

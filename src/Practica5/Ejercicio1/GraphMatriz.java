@@ -15,7 +15,7 @@ public class GraphMatriz<T> implements Graph<T>{
     @Override
     public Vertex<T> createVertex(T data) {
         // Creo el nuevo vertice a agregar, y la nueva matriz(que reemplazará a la anterior)
-        Vertex<T> nuevo = new VertexImpl<T>(data);
+        Vertex<T> nuevo = new VertexImpl<T>(data, vertices.size());
         int sizeViejo = vertices.size();
         int [][] matrizNueva = new int[sizeViejo + 1][sizeViejo + 1];
         //Copio en la matriz nueva lo que ya había en la anterior
