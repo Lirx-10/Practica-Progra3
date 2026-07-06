@@ -1,17 +1,18 @@
 package Practica5.Ejercicio1;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GraphList<T> implements Graph<T> {
-    private List<Vertex<T>> vertices;
-    private List<List<Edge<T>>> adjList;
+    private List<Vertex<T>> vertices = new ArrayList<>();
+    private List<List<Edge<T>>> adjList = new ArrayList<>();
 
     @Override
     public Vertex<T> createVertex(T data) {
-        Vertex<T> v = new VertexImpl<T>(data, vertices.size());
-        vertices.add(v);
+        Vertex<T> v = new VertexImpl<T>(data, this.vertices.size());
+        this.vertices.add(v);
         adjList.add(new LinkedList<Edge<T>>());
         return v;
     }
@@ -30,9 +31,9 @@ public class GraphList<T> implements Graph<T> {
             }
         }
         // Elimino su lista de adyacentes
-        adjList.remove(pos);
+        this.adjList.remove(pos);
         // Elimino el vertice
-        vertices.remove(pos);
+        this.vertices.remove(pos);
         // Actualizo las posiciones
         for(int i = pos; i < vertices.size(); i++){
             Vertex<T> v = vertices.get(i);

@@ -24,19 +24,45 @@ public class Mapa {
         this.grafo = grafo;
     }
 
-    public List<String> recorridoTuristico(String origen, String destino){
+    public List<String> recorridoTuristico(String ciudadOrigen, String ciudadDestino){
         List<String> recorrido = new ArrayList<>();
+        List<String> caminoActual = new ArrayList<>();
+        Vertex<String> origen = grafo.search(ciudadOrigen);
+        Vertex<String> destino = grafo.search(ciudadDestino);
+        if(origen == null || destino == null){
+            return recorrido;
+        }
         boolean[] visitados = new boolean[grafo.getSize()];
-        Vertex<String> origin = grafo.search(origen);
-        Vertex<String> destination = grafo.search(destino);
-        dfs(origin, destination, recorrido, visitados);
-
+        Resultados res = new Resultados(-1, Integer.MAX_VALUE);
+        dfs(origen, destino,recorrido,caminoActual,visitados,res,0,0);
         return recorrido;
     }
     
-    public void dfs(Vertex<String> origen, Vertex<String> destino, List<String> mejorCamino, boolean[] visitados){
-        List<String> caminoActual = new ArrayList<>();
-
+    private void dfs(Vertex<String> actual, Vertex<String> destino, List<String> mejorCamino, List<String> caminoActual, boolean[] visitados, Resultados res,int imperdibles, int opcionales){
+        visitados[actual.getPosition()] = true;
+        caminoActual.add(actual.getData());
+        if(actual == destino){
+            if(imperdibles > res.getMaxImperdible() || (imperdibles == res.getMaxImperdible() && opcionales < res.getMinOpcionales())){
+                res.setMaxImperdible(imperdibles);
+                res.setMinOpcionales(opcionales);
+                mejorCamino.clear();
+                mejorCamino.addAll(caminoActual);
+            }
+        }else{ //Si no llegué a destino sigo recorriendo
+            List<Edge<String>> aristas = grafo.getEdges(actual);
+            for(Edge<String> e : aristas){
+                Vertex<String> siguiente = e.getTarget();
+                if(visitados[siguiente.getPosition()]==false){
+                    if(e.getWeight() == 1){
+                        dfs(siguiente, destino, mejorCamino, caminoActual, visitados, res, imperdibles+1, opcionales);
+                    }else{
+                        dfs(siguiente, destino, mejorCamino, caminoActual, visitados, res, imperdibles, opcionales+1);
+                    }
+                }
+            }
+        }
+        visitados[actual.getPosition()] = false;
+        caminoActual.remove(caminoActual.size()-1);
     }
 
 }

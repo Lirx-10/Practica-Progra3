@@ -55,7 +55,7 @@ public class Mapa {
         boolean[] visitados = new boolean[mapaCiudades.getSize()];
         if(mapaCiudades.isEmpty()){
             return camino;
-        }
+        } 
         if(origen == null || destino == null){
             return camino;
         }
